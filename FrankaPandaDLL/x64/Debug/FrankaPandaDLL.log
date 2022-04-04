@@ -1,0 +1,21 @@
+﻿  FrankaPandaDLL.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\xutility(4198,18): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\xutility(4210): message : see reference to function template instantiation '_OutIt std::_Copy_unchecked<double*,_OutIt>(_InIt,_InIt,_OutIt)' being compiled
+          with
+          [
+              _OutIt=float *,
+              _InIt=double *
+          ]
+C:\Users\student\source\repos\FrankaPandaDLL\FrankaPandaDLL\FrankaPandaDLL.cpp(47): message : see reference to function template instantiation '_OutIt *std::copy<std::_Array_iterator<_Ty,7>,float*>(_InIt,_InIt,_OutIt)' being compiled
+          with
+          [
+              _OutIt=float *,
+              _Ty=double,
+              _InIt=std::_Array_iterator<double,7>
+          ]
+     Creating library C:\Users\student\source\repos\FrankaPandaDLL\x64\Debug\FrankaPandaDLL.lib and object C:\Users\student\source\repos\FrankaPandaDLL\x64\Debug\FrankaPandaDLL.exp
+  FrankaPandaDLL.vcxproj -> C:\Users\student\source\repos\FrankaPandaDLL\x64\Debug\FrankaPandaDLL.dll
