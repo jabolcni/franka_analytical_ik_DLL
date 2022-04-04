@@ -1,6 +1,13 @@
 # FrankaPandaDLL
 
+## Summary
+This is a VS project for compiling a DLL of project ffall007/franka_analytical_ik.
+
+## Introduction
+
 This is a Visual Studio project (Microsoft Visual Studio Enterprise 2019) for compiling a DLL of a code for analytical Inverse Kinematics (IK) solver for Franka Emika Panda published by Yanhao He and Steven Liu. Original project is published on https://github.com/ffall007/franka_analytical_ik/blob/main/README.md. If you want to cite the IK project you should cite the authors Yanhao He and Steven Liu (please go to their github page). 
+
+The aim of the project was to compile DLL so that IK solver can be used in Unity project for Franka Panda Emika vizualization. Unity project will also be soon availible on GitHub.
 
 ## DLL compiling
 
@@ -77,7 +84,28 @@ Wrapper functions make call to a function
 ```cpp
 std::array<double, 7> franka_IK_EE_CC ( std::array<double, 16> O_T_EE_array,
                                         double q7,
-                                        std::array<double, 7> q_actual_array )
+                                        std::array<double, 7> q_actual_array,
+                                        bool limit, bool flange)
+```
+
+## Changes
+
+Few changes have nevertheless been made to function 
+
+```cpp
+std::array<double, 7> franka_IK_EE_CC ( std::array<double, 16> O_T_EE_array,
+                                        double q7,
+                                        std::array<double, 7> q_actual_array,
+                                        bool limit, bool flange)
+```
+
+Original version returned *NaN* values for joint angles if the calculated values were outside of joint limits. Current version returns either max or min joint value. You can also ignore joint limits by setting `bool limit` variable to `false`. With variable `bool flange` you can choose whether you want to calculate IK for flange or you want to include fingers in calculation of IK. The difference is:
+
+```cpp
+    if (flange)
+        d7e = 0.107;
+    else
+        d7e = 0.2104;
 ```
 
 ## Error `EntryPointNotFoundException`
